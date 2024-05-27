@@ -1,0 +1,76 @@
+﻿@model IEnumerable<T2_Enciso_Renato.Models.Distribuidor>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+        body {
+            background-image: linear-gradient(to bottom right, #C84BC1, #4758CF);
+            font-family:Roboto;
+        }
+       
+   
+        tbody tr {
+            background-color: white;
+        }
+        th, td {
+            border: none; 
+            text-align:center;
+            padding: 8px;
+        }
+</style>
+
+<div class="container pt-3">
+    
+ <h2 style="text-align:center;color:white; font-weight:900"> LISTA DE DISTRIBUIDORES</h2>
+    
+ <div class="col-6">
+    <a asp-controller="Distribuidor" asp-action="Crear" class="btn btn-primary" style="border:none;background-color:#4EBE3A;border-radius:30px; box-shadow: 4px 4px 10px 0px black;">Nuevo Distribuidor</a>
+ </div>
+
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+                                  <table style="width:100%;  border: none;  border-radius:30px; overflow: hidden; box-shadow: 4px 4px 10px 0px black; ">
+                  <thead style="text-align:center">
+                          <tr style="background-color:#36304A; color: white;vertical-align:middle">
+                          <th> NOMBRE DE DISTRIBUIDOR </th>
+                          <th> RAZON SOCIAL </th>
+                          <th> TELEFONO </th>
+                          <th> AÑO INICIAL DE OPERACIÓN </th>
+                          <th> CONTACTO </th>
+                          <th></th>
+                      </tr>
+                  </thead>
+
+                      <tbody style="color: #555555">
+                @foreach (var item in Model)
+                {
+                                  <tr>
+                                               <th width="20%" style="font-weight: 300;">@item.NombreDistribuidor</th>
+                                               <th width="20%" style="font-weight: 300;">@item.RazonSocial</th>
+                                               <th width="20%" style="font-weight: 300;">@item.Telefono</th>
+                                               <th width="15%" style="font-weight: 300;">@item.AnioInicioOperacion</th>
+                                               <th width="8%" style="font-weight: 300;">@item.Contacto</th>
+                                       <th width="17%" style="font-weight: 300;">
+                                            <div class="w-75 btn-group" role="group">
+                                                        <a asp-controller="Distribuidor" asp-action="Editar" asp-route-Id="@item.Id" class="btn btn-primary mx-2" style="border-radius:30px;">Editar</a>
+                                                        <a asp-controller="Distribuidor" asp-action="Eliminar" asp-route-Id="@item.Id" class="btn btn-danger mx-2" style="border-radius:30px;">Borrar</a>
+                                            </div>
+                                       </th>
+                                    
+                                  </tr>
+                }
+                  </tbody>
+                </table>
+    }
+    else
+    {
+
+            <p>No hay registros de Distribuidor</p>
+    }
+
+</div>
+

@@ -1,0 +1,81 @@
+﻿@model T2_Enciso_Renato.Models.Distribuidor
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+        body {
+            background-image: linear-gradient(to bottom right, #C84BC1, #4758CF);
+            font-family:Roboto;
+        }
+</style>
+
+<form method="post" asp-action="Eliminar" style="text-align:center;">
+    <div class="border p-3" style="box-shadow: 4px 4px 10px 0px black; background-color:white;border-radius:30px; margin-top:30px">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 style="color:black; font-weight:900">¿Estás seguro de eliminar este distribuidor?</h2>
+        </div>
+        <br />
+        <div class="container" style="margin: 0% 25%">
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="NombreDistribuidor" class="form-label">Nombre Distribuidor</label>
+                    <input asp-for="NombreDistribuidor" disabled class="form-control" placeholder="Ingrese nombre del distribuidor"/>
+                  
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="RazonSocial" class="form-label">Razon Social</label>
+                    <input asp-for="RazonSocial" disabled class="form-control" placeholder="Ingrese razon social"/>
+                  
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="Telefono" class="form-label">Telefono</label>
+                    <input asp-for="Telefono" disabled class="form-control" placeholder="Ingrese numero de telefono"/>
+               
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="AnioInicioOperacion" class="form-label">Año Inicio Operacion</label>
+                    <input asp-for="AnioInicioOperacion" disabled class="form-control" placeholder="Ingrese año de inicio de operación"/>
+                  
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <label asp-for="Contacto" class="form-label">Contacto</label>
+                    <input asp-for="Contacto" disabled class="form-control" placeholder="Ingrese contacto"/>
+                  
+                </div>
+            </div>
+
+            <br /> 
+
+            <div class="d-grid gap-2 d-md-block" style="margin-right:50%">
+
+                <button type="submit" class="btn btn-primary" style="border-radius:30px;">Eliminar</button>
+                <a asp-controller="Distribuidor" asp-action="Index" class="btn btn-primary" style="background-color:#33B117; border-radius:30px; border-color: #33B117">Regresar</a>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+
+
